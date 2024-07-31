@@ -1,14 +1,8 @@
 unit MandelbrotMainForm;
 
-//TODO: Add SpinEdit controls for Max Iterations and Max Colors.
+//TODO: Add SpinEdit controls for Max Iterations and Max Colors.  (Redraw button required after changes.)
 
-//TODO: Add display Labels for current parameters (coordinates, zoom level, palette, etc.).
-
-//TODO: Support choice of Color Gradient.
-
-//TODO: Use array of array of TColor to define set of possible Color Gradients.
-
-//TODO: Draw current Color gradient at bottom of MandelbrotSpace.
+//TODO: Add display Labels for current parameters (coordinates, zoom level, etc.).
 
 //TODO: (?) Support Save/Load of current parameters (coordinates, zoom level, palette, etc.).
 
