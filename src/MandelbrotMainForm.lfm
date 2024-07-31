@@ -1,0 +1,63 @@
+object MandelBrotMainForm: TMandelBrotMainForm
+  Left = 308
+  Height = 800
+  Top = 150
+  Width = 800
+  Caption = 'Mandelbrot Set'
+  ClientHeight = 800
+  ClientWidth = 800
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  Visible = True
+  object ButtonReset: TButton
+    Left = 8
+    Height = 36
+    Top = 8
+    Width = 110
+    Caption = 'Reset'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    OnClick = ButtonResetClick
+    ParentFont = False
+    TabOrder = 0
+  end
+  object ButtonColors: TButton
+    Left = 128
+    Height = 36
+    Top = 8
+    Width = 110
+    Caption = 'Colors'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    OnClick = ButtonColorsClick
+    ParentFont = False
+    TabOrder = 1
+  end
+  object ButtonRedraw: TButton
+    Left = 248
+    Height = 36
+    Top = 8
+    Width = 110
+    Caption = 'Redraw'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    OnClick = ButtonRedrawClick
+    ParentFont = False
+    TabOrder = 2
+  end
+end
