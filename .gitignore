@@ -1,0 +1,11 @@
+
+backup/
+lib/
+
+*.exe
+*.res
+
+src/Mandelbrot
+!bin/Mandelbrot
+!bin/*.exe
+
