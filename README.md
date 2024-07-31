@@ -2,7 +2,11 @@
 
 _Version 1.0.0+20240731  ([Version Release Notes](#ReleaseNotes))_ 
 
-...
+This is an open source interactive graphic viewer for the **[Mandelbrot Set](https://en.wikipedia.org/wiki/Mandelbrot_set)**.
+
+The viewer allows zooming in and out of the Mandelbrot Set, including re-centering on different areas of the set.
+
+The view also allows selection of alternate color gradients for the Mandelbrot Set.
 
 
 ## About the Software
@@ -16,7 +20,7 @@ The **[Lazarus Integrated Development Environment](https://www.lazarus-ide.org/)
 
 ### Microsoft Windows
 
-You can run the Astronomical Simulation program on Microsoft Windows as follows:
+You can run the Mandelbrot Set viewer program on Microsoft Windows as follows:
 
 - Download the **Mandelbrot.exe** binary executable file from the **bin** sub-folder from this GitHub.com page.
 
@@ -24,7 +28,7 @@ You can run the Astronomical Simulation program on Microsoft Windows as follows:
 
 ### Ubuntu Linux
 
-You can run the Astronomical Simulation program on Ubuntu Linux (and presumably other Linux distributions) as follows:
+You can run the Mandelbrot Set viewer program on Ubuntu Linux (and presumably other Linux distributions) as follows:
 
 - Download the **Mandelbrot** binary executable file (with no file extension) from the **bin** sub-folder from this GitHub.com page.
 
@@ -38,28 +42,42 @@ You can run the Astronomical Simulation program on Ubuntu Linux (and presumably 
 
 Double-click the downloaded copy of **Mandelbrot.exe** (on Windows) or **Mandelbrot** (on Linux) to start the viewer.
 
-When the program starts it displays the **Mandelbrot Set** Main Form.
+When the program starts it displays the **Mandelbrot Set** viewer form.
 
-Here is an image of the Main Form.
+Here is an image of the viewer form.
 
-![Mandelbrot Form](img/Mandelbrot.png?raw=true "Mandelbrot Form")
+![Mandelbrot Viewer](img/Mandelbrot.png?raw=true "Mandelbrot Viewer")
 
-The Main Form contains these elements:
+The viewer form contains these elements:
 
-- ...
+- **Reset** button: Click this to re-initialize the viewer to show the full Mandelbrot Set after zooming in or and around the viewing area.
+- **Colors** button: Click this to display a set of various color gradients.  Click on any of the displayed color gradients to select it and the trigger a redraw of the Mandelbrot Set.
+- **Redraw** button: Click this to redraw the Mandelbrot Set after changing the size of the viewer form.
+
+Here is an example of the color gradient selection display.  (Note that the actual color gradients may be different than this example.)
+
+![Mandelbrot Color Gradient Selection View](img/MandelbrotColors.png?raw=true "Mandelbrot Color Gradient Selection View")
 
 
-### Resizing the Main Form
+### Resizing the Viewer Form
 
 The initial size of the Main Form is designed to fit within an 800 by 600 monitor window.
 
 To enlarge the form, drag its boundary or simply click the _maximize_ icon (small square in the upper right of the title bar).
 
-Then click the **Calculate** button to enlarge the graphic simulation area to match the enlarged form.
+Then click the **Redraw** button to adjust the graphic viewer area to match the enlarged form.  (The **Reset** button also adjusts the graphic viewer are to match the resized form.)
+
 
 ### Zooming In on a Region of the Mandelbrot Set
 
-...
+Click with the left mouse button anywhere within the graphic viewer are to zoom into the image, centered on that point.
+
+Click with the right mouse button anywhere within the graphic viewer to zoom back out, centered on that point.
+
+Here is an example of the view that has been zoomed in several times on a specific area, and with an alternate color gradient selected.
+
+![Mandelbrot Zoomed View](img/MandelbrotZoomed.png?raw=true "Mandelbrot Zoomed View")
+
 
 ## Source code compilation notes
 
