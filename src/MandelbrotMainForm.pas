@@ -20,6 +20,7 @@ uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   StdCtrls,
   Constants,
+  Context,
   MandelbrotSpace;
 
 type
@@ -30,11 +31,14 @@ type
     ButtonColors: TButton;
     ButtonRedraw: TButton;
     ButtonReset: TButton;
+    Label1: TLabel;
+    ScaleFactorLabel: TLabel;
     procedure ButtonRedrawClick(Sender: TObject);
     procedure ButtonResetClick(Sender: TObject);
     procedure ButtonColorsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ResizeSpace;
+    procedure Update; override;
   end;
 
   var
@@ -51,6 +55,11 @@ implementation
 procedure TMandelbrotMainForm.FormCreate(Sender: TObject);
 begin
   Caption := Caption + '  (Version ' + PRODUCT_VERSION + ')';
+
+  MaxIterations := INITIAL_MAX_ITERATIONS;
+  MaxColors := MaxIterations;
+
+  ScaleFactorLabel.Caption := FloatToStr(INITIAL_SCALE_FACTOR);
 
   Space := TMandelbrotSpace.Create(Self);
   Space.InitializeColorGradient;
@@ -77,6 +86,8 @@ begin
   Space.ResetCoordinatesAndScale;
   Space.Paint;
 
+  ScaleFactorLabel.Caption := FloatToStr(ScaleFactor);
+
   ButtonReset.Enabled := true;
 end;
 
@@ -97,6 +108,13 @@ begin
   Space.Paint;
 
   ButtonRedraw.Enabled := true;
+end;
+
+procedure TMandelbrotMainForm.Update;
+begin
+  inherited;
+
+  ScaleFactorLabel.Caption := FloatToStr(ScaleFactor);
 end;
 
 end.

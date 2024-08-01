@@ -60,4 +60,28 @@ object MandelBrotMainForm: TMandelBrotMainForm
     ParentFont = False
     TabOrder = 2
   end
+  object Label1: TLabel
+    Left = 397
+    Height = 20
+    Top = 16
+    Width = 82
+    Caption = 'Scale Factor:'
+    ParentColor = False
+  end
+  object ScaleFactorLabel: TLabel
+    Left = 488
+    Height = 20
+    Top = 16
+    Width = 42
+    Caption = '(TBD)'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
 end

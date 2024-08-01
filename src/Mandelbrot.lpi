@@ -16,7 +16,7 @@
       <MajorVersionNr Value="1"/>
       <Language Value="080C"/>
       <CharSet Value="03A4"/>
-      <StringTable Comments="MIT License.  https://opensource.org/licenses/MIT" CompanyName="Rick Rutt" FileDescription="Mandelbrot Set in Pascal" LegalCopyright="Copyright 2024 Rick Rutt" ProductName="Mandelbrot Set in Pascal" ProductVersion="1.0.0+20240731"/>
+      <StringTable Comments="MIT License.  https://opensource.org/licenses/MIT" CompanyName="Rick Rutt" FileDescription="Mandelbrot Set in Pascal" LegalCopyright="Copyright 2024 Rick Rutt" ProductName="Mandelbrot Set in Pascal" ProductVersion="1.0.0+20240801"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -35,7 +35,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="Mandelbrot.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -71,6 +71,11 @@
         <Filename Value="Constants.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="context.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Context"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -85,7 +90,6 @@
     </SearchPaths>
     <Linking>
       <Debugging>
-        <GenerateDebugInfo Value="False"/>
         <DebugInfoType Value="dsDwarf3"/>
       </Debugging>
       <Options>
