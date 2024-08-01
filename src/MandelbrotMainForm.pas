@@ -1,8 +1,12 @@
 unit MandelbrotMainForm;
 
-//TODO: Add SpinEdit controls for Max Iterations and Max Colors.  (Redraw button required after changes.)
-
 //TODO: Add display Labels for current parameters (coordinates, zoom level, etc.).
+
+//TODO: Define better color gradients.
+
+//TODO: Add SpinEdit control for Max Iterations.  (Redraw button required after changes.)
+
+//TODO: (?) Add SpinEdit controls for Max Colors.  (Redraw button required after changes.)
 
 //TODO: (?) Support Save/Load of current parameters (coordinates, zoom level, palette, etc.).
 
@@ -31,7 +35,6 @@ type
     procedure ButtonColorsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ResizeSpace;
-    procedure EnableButtons(const AreEnabled: boolean);
   end;
 
   var
@@ -66,41 +69,34 @@ begin
   Space.DoubleBuffered := True;
 end;
 
-procedure TMandelbrotMainForm.EnableButtons(const AreEnabled: boolean);
-begin
-  ButtonReset.Enabled := AreEnabled;
-  ButtonColors.Enabled := AreEnabled;
-  ButtonRedraw.Enabled := AreEnabled;
-end;
-
 procedure TMandelbrotMainForm.ButtonResetClick(Sender: TObject);
 begin
-  EnableButtons(false);
+  ButtonReset.Enabled := false;
 
   ResizeSpace;
   Space.ResetCoordinatesAndScale;
   Space.Paint;
 
-  EnableButtons(true);
+  ButtonReset.Enabled := true;
 end;
 
 procedure TMandelbrotMainForm.ButtonColorsClick(Sender: TObject);
 begin
-  EnableButtons(false);
+  ButtonColors.Enabled := false;
 
   Space.PaintColorGradients;
 
-  EnableButtons(true);
+  ButtonColors.Enabled := true;
 end;
 
 procedure TMandelbrotMainForm.ButtonRedrawClick(Sender: TObject);
 begin
-  EnableButtons(false);
+  ButtonRedraw.Enabled := false;
 
   ResizeSpace;
   Space.Paint;
 
-  EnableButtons(true);
+  ButtonRedraw.Enabled := true;
 end;
 
 end.
