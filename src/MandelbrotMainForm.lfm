@@ -61,17 +61,17 @@ object MandelBrotMainForm: TMandelBrotMainForm
     TabOrder = 2
   end
   object Label1: TLabel
-    Left = 397
+    Left = 387
     Height = 20
-    Top = 10
+    Top = 0
     Width = 81
     Caption = 'Zoom Level:'
     ParentColor = False
   end
   object ZoomLevelLabel: TLabel
-    Left = 488
+    Left = 478
     Height = 20
-    Top = 10
+    Top = 0
     Width = 42
     Caption = '(TBD)'
     Font.CharSet = ANSI_CHARSET
@@ -85,7 +85,7 @@ object MandelBrotMainForm: TMandelBrotMainForm
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 552
+    Left = 569
     Height = 20
     Top = 0
     Width = 12
@@ -93,7 +93,7 @@ object MandelBrotMainForm: TMandelBrotMainForm
     ParentColor = False
   end
   object XCoordLabel: TLabel
-    Left = 568
+    Left = 585
     Height = 20
     Top = 0
     Width = 42
@@ -109,7 +109,7 @@ object MandelBrotMainForm: TMandelBrotMainForm
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 552
+    Left = 569
     Height = 20
     Top = 24
     Width = 11
@@ -117,7 +117,7 @@ object MandelBrotMainForm: TMandelBrotMainForm
     ParentColor = False
   end
   object YCoordLabel: TLabel
-    Left = 568
+    Left = 585
     Height = 20
     Top = 24
     Width = 42
@@ -131,5 +131,26 @@ object MandelBrotMainForm: TMandelBrotMainForm
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+  end
+  object MaxIterationsSpinEdit: TSpinEdit
+    Left = 478
+    Height = 28
+    Top = 24
+    Width = 78
+    Alignment = taCenter
+    Increment = 100
+    MaxValue = 10000
+    MinValue = 10
+    OnChange = MaxIterationsSpinEditChange
+    TabOrder = 3
+    Value = 100
+  end
+  object Label4: TLabel
+    Left = 368
+    Height = 20
+    Top = 24
+    Width = 100
+    Caption = 'Max. Iterations:'
+    ParentColor = False
   end
 end

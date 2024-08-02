@@ -1,7 +1,5 @@
 unit MandelbrotMainForm;
 
-//TODO: Add display Labels for current parameters (coordinates, zoom level, etc.).
-
 //TODO: Define better color gradients.
 
 //TODO: Add SpinEdit control for Max Iterations.  (Redraw button required after changes.)
@@ -18,7 +16,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls,
+  StdCtrls, Spin,
   Constants,
   Context,
   MandelbrotSpace;
@@ -34,6 +32,8 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Label4: TLabel;
+    MaxIterationsSpinEdit: TSpinEdit;
     YCoordLabel: TLabel;
     ZoomLevelLabel: TLabel;
     XCoordLabel: TLabel;
@@ -41,6 +41,7 @@ type
     procedure ButtonResetClick(Sender: TObject);
     procedure ButtonColorsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure MaxIterationsSpinEditChange(Sender: TObject);
     procedure ResizeSpace;
     procedure UpdateLabels;
     procedure Update; override;
@@ -67,6 +68,12 @@ begin
   Space := TMandelbrotSpace.Create(Self);
   Space.InitializeColorGradient;
   ButtonResetClick(Sender);
+end;
+
+procedure TMandelbrotMainForm.MaxIterationsSpinEditChange(Sender: TObject);
+begin
+  MaxIterations := MaxIterationsSpinEdit.Value;
+  MaxColors := MaxIterations;
 end;
 
 procedure TMandelbrotMainForm.ResizeSpace;
@@ -119,6 +126,8 @@ var
 begin
   zoomLevel := INITIAL_SCALE_FACTOR / ScaleFactor;
   ZoomLevelLabel.Caption := FloatToStr(zoomLevel);
+
+  MaxIterationsSpinEdit.Value := MaxIterations;
 
   XCoordLabel.Caption := FloatToStr(XCoordOffset);
   YCoordLabel.Caption := FloatToStr(- YCoordOffset);
