@@ -32,12 +32,17 @@ type
     ButtonRedraw: TButton;
     ButtonReset: TButton;
     Label1: TLabel;
-    ScaleFactorLabel: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    YCoordLabel: TLabel;
+    ZoomLevelLabel: TLabel;
+    XCoordLabel: TLabel;
     procedure ButtonRedrawClick(Sender: TObject);
     procedure ButtonResetClick(Sender: TObject);
     procedure ButtonColorsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ResizeSpace;
+    procedure UpdateLabels;
     procedure Update; override;
   end;
 
@@ -58,8 +63,6 @@ begin
 
   MaxIterations := INITIAL_MAX_ITERATIONS;
   MaxColors := MaxIterations;
-
-  ScaleFactorLabel.Caption := FloatToStr(INITIAL_SCALE_FACTOR);
 
   Space := TMandelbrotSpace.Create(Self);
   Space.InitializeColorGradient;
@@ -86,7 +89,7 @@ begin
   Space.ResetCoordinatesAndScale;
   Space.Paint;
 
-  ScaleFactorLabel.Caption := FloatToStr(ScaleFactor);
+  UpdateLabels;
 
   ButtonReset.Enabled := true;
 end;
@@ -110,11 +113,22 @@ begin
   ButtonRedraw.Enabled := true;
 end;
 
+procedure TMandelbrotMainForm.UpdateLabels;
+var
+  zoomLevel: double;
+begin
+  zoomLevel := INITIAL_SCALE_FACTOR / ScaleFactor;
+  ZoomLevelLabel.Caption := FloatToStr(zoomLevel);
+
+  XCoordLabel.Caption := FloatToStr(XCoordOffset);
+  YCoordLabel.Caption := FloatToStr(- YCoordOffset);
+end;
+
 procedure TMandelbrotMainForm.Update;
 begin
   inherited;
 
-  ScaleFactorLabel.Caption := FloatToStr(ScaleFactor);
+  UpdateLabels;
 end;
 
 end.

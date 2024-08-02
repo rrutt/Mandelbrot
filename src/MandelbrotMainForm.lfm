@@ -63,15 +63,63 @@ object MandelBrotMainForm: TMandelBrotMainForm
   object Label1: TLabel
     Left = 397
     Height = 20
-    Top = 16
-    Width = 82
-    Caption = 'Scale Factor:'
+    Top = 10
+    Width = 81
+    Caption = 'Zoom Level:'
     ParentColor = False
   end
-  object ScaleFactorLabel: TLabel
+  object ZoomLevelLabel: TLabel
     Left = 488
     Height = 20
-    Top = 16
+    Top = 10
+    Width = 42
+    Caption = '(TBD)'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 552
+    Height = 20
+    Top = 0
+    Width = 12
+    Caption = 'X:'
+    ParentColor = False
+  end
+  object XCoordLabel: TLabel
+    Left = 568
+    Height = 20
+    Top = 0
+    Width = 42
+    Caption = '(TBD)'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 552
+    Height = 20
+    Top = 24
+    Width = 11
+    Caption = 'Y:'
+    ParentColor = False
+  end
+  object YCoordLabel: TLabel
+    Left = 568
+    Height = 20
+    Top = 24
     Width = 42
     Caption = '(TBD)'
     Font.CharSet = ANSI_CHARSET
