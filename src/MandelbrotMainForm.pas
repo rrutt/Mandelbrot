@@ -2,14 +2,6 @@ unit MandelbrotMainForm;
 
 //TODO: Define better color gradients.
 
-//TODO: Add SpinEdit control for Max Iterations.  (Redraw button required after changes.)
-
-//TODO: (?) Add SpinEdit controls for Max Colors.  (Redraw button required after changes.)
-
-//TODO: (?) Support Save/Load of current parameters (coordinates, zoom level, palette, etc.).
-
-//TODO: (?) Support save of current Bitmap to PNG file.  https://lazarus-ccr.sourceforge.io/docs/lcl/graphics/tpicture.html
-
 {$mode objfpc}{$H+}
 
 interface
