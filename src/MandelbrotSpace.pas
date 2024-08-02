@@ -8,6 +8,7 @@ uses
   Classes, SysUtils, Controls, Dialogs, Graphics, LCLType, Math,
   ColorGradientUtil,
   Constants,
+  Context,
   MandelbrotPoint;
 
 type
@@ -15,9 +16,6 @@ type
     private
       CenterX: Integer;
       CenterY: Integer;
-      XCoordOffset: Double;
-      YCoordOffset: Double;
-      ScaleFactor: Double;
       SelectingColors: Boolean;
       CurrentGradientIndex: Integer;
 
@@ -126,9 +124,11 @@ implementation
     pointColor: TColor;
     gradientColors: array of TColor;
     gradientIndex: integer;
-    colorPalette: array[1..MAX_COLORS] of TColor;
+    colorPalette: array of TColor;
   begin
     SelectingColors := false;
+
+    SetLength(colorPalette{%H-}, MaxColors);
 
     gradientIndex := CurrentGradientIndex;
     gradientColors := GRADIENT_COLOR_SETS[gradientIndex];
@@ -139,7 +139,7 @@ implementation
       Bitmap.Width := Width;
       Bitmap.Height := Height;
 
-      scale := (ScaleFactor * MAX_VALUE_EXTANT) / Math.Min(Width, Height);
+      scale := (ScaleFactor * MAX_MAGNITUDE) / Math.Min(Width, Height);
 
       for ix := 0 to (Width - 1) do begin
         offsetX := ix - CenterX;
@@ -185,7 +185,7 @@ implementation
       { Re-center the space on the clicked point. }
       offsetX := X - CenterX;
       offsetY := Y - CenterY;
-      scale := (ScaleFactor * MAX_VALUE_EXTANT) / Math.Min(Width, Height);
+      scale := (ScaleFactor * MAX_MAGNITUDE) / Math.Min(Width, Height);
       XCoordOffset := XCoordOffset + (offsetX * scale);
       YCoordOffset := YCoordOffset + (offsetY * scale);
 
@@ -195,6 +195,9 @@ implementation
         ScaleFactor := ScaleFactor * SCALE_ZOOM_DIVISOR;
       end;
     end;
+
+    // Allow main form to update the ScaleFactor label.
+    Parent.Update;
 
     Paint;
   end;

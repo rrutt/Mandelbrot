@@ -7,6 +7,7 @@ interface
 uses
   Classes, Graphics, SysUtils,
   Constants,
+  Context,
   Cplx,
   CplxSup;
 
@@ -32,21 +33,21 @@ var
   iteration: integer;
   colorIndex: integer;
 begin
-  maxMag2 := MAX_VALUE_EXTANT * MAX_VALUE_EXTANT;
+  maxMag2 := MAX_MAGNITUDE * MAX_MAGNITUDE;
 
   c.init(XCoord, YCoord);
   z.init(0.0, 0.0);
   zMag2 := 0;
   iteration := 0;
 
-  while (zMag2 < maxMag2) and (iteration < MAX_ITERATIONS) do begin
+  while (zMag2 < maxMag2) and (iteration < MaxIterations) do begin
     zNext := (z * z) + c;
     z := zNext;
     zMag2 := z.mag2;
     inc(iteration);
   end;
 
-  if (iteration < MAX_ITERATIONS) then begin
+  if (iteration < MaxIterations) then begin
     colorIndex := iteration mod Length(Colors);
     pointColor := Colors[colorIndex];
   end else begin

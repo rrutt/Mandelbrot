@@ -1,18 +1,6 @@
 unit MandelbrotMainForm;
 
-//TODO: Add SpinEdit controls for Max Iterations and Max Colors.
-
-//TODO: Add display Labels for current parameters (coordinates, zoom level, palette, etc.).
-
-//TODO: Support choice of Color Gradient.
-
-//TODO: Use array of array of TColor to define set of possible Color Gradients.
-
-//TODO: Draw current Color gradient at bottom of MandelbrotSpace.
-
-//TODO: (?) Support Save/Load of current parameters (coordinates, zoom level, palette, etc.).
-
-//TODO: (?) Support save of current Bitmap to PNG file.  https://lazarus-ccr.sourceforge.io/docs/lcl/graphics/tpicture.html
+//TODO: Define better color gradients.
 
 {$mode objfpc}{$H+}
 
@@ -20,8 +8,9 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls,
+  StdCtrls, Spin,
   Constants,
+  Context,
   MandelbrotSpace;
 
 type
@@ -32,12 +21,22 @@ type
     ButtonColors: TButton;
     ButtonRedraw: TButton;
     ButtonReset: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    MaxIterationsSpinEdit: TSpinEdit;
+    YCoordLabel: TLabel;
+    ZoomLevelLabel: TLabel;
+    XCoordLabel: TLabel;
     procedure ButtonRedrawClick(Sender: TObject);
     procedure ButtonResetClick(Sender: TObject);
     procedure ButtonColorsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure MaxIterationsSpinEditChange(Sender: TObject);
     procedure ResizeSpace;
-    procedure EnableButtons(const AreEnabled: boolean);
+    procedure UpdateLabels;
+    procedure Update; override;
   end;
 
   var
@@ -55,9 +54,18 @@ procedure TMandelbrotMainForm.FormCreate(Sender: TObject);
 begin
   Caption := Caption + '  (Version ' + PRODUCT_VERSION + ')';
 
+  MaxIterations := INITIAL_MAX_ITERATIONS;
+  MaxColors := MaxIterations;
+
   Space := TMandelbrotSpace.Create(Self);
   Space.InitializeColorGradient;
   ButtonResetClick(Sender);
+end;
+
+procedure TMandelbrotMainForm.MaxIterationsSpinEditChange(Sender: TObject);
+begin
+  MaxIterations := MaxIterationsSpinEdit.Value;
+  MaxColors := MaxIterations;
 end;
 
 procedure TMandelbrotMainForm.ResizeSpace;
@@ -72,41 +80,52 @@ begin
   Space.DoubleBuffered := True;
 end;
 
-procedure TMandelbrotMainForm.EnableButtons(const AreEnabled: boolean);
-begin
-  ButtonReset.Enabled := AreEnabled;
-  ButtonColors.Enabled := AreEnabled;
-  ButtonRedraw.Enabled := AreEnabled;
-end;
-
 procedure TMandelbrotMainForm.ButtonResetClick(Sender: TObject);
 begin
-  EnableButtons(false);
+  ButtonReset.Enabled := false;
 
   ResizeSpace;
   Space.ResetCoordinatesAndScale;
   Space.Paint;
 
-  EnableButtons(true);
+  UpdateLabels;
+
+  ButtonReset.Enabled := true;
 end;
 
 procedure TMandelbrotMainForm.ButtonColorsClick(Sender: TObject);
 begin
-  EnableButtons(false);
-
   Space.PaintColorGradients;
-
-  EnableButtons(true);
 end;
 
 procedure TMandelbrotMainForm.ButtonRedrawClick(Sender: TObject);
 begin
-  EnableButtons(false);
+  ButtonRedraw.Enabled := false;
 
   ResizeSpace;
   Space.Paint;
 
-  EnableButtons(true);
+  ButtonRedraw.Enabled := true;
+end;
+
+procedure TMandelbrotMainForm.UpdateLabels;
+var
+  zoomLevel: double;
+begin
+  zoomLevel := INITIAL_SCALE_FACTOR / ScaleFactor;
+  ZoomLevelLabel.Caption := FloatToStr(zoomLevel);
+
+  MaxIterationsSpinEdit.Value := MaxIterations;
+
+  XCoordLabel.Caption := FloatToStr(XCoordOffset);
+  YCoordLabel.Caption := FloatToStr(- YCoordOffset);
+end;
+
+procedure TMandelbrotMainForm.Update;
+begin
+  inherited;
+
+  UpdateLabels;
 end;
 
 end.

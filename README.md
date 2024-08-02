@@ -1,6 +1,6 @@
 # Mandelbrot Set Viewer Written in Pascal
 
-_Version 1.0.0+20240731  ([Version Release Notes](#ReleaseNotes))_ 
+_Version 1.0.0+20240801  ([Version Release Notes](#ReleaseNotes))_ 
 
 This is an open source interactive graphic viewer for the **[Mandelbrot Set](https://en.wikipedia.org/wiki/Mandelbrot_set)**.
 
@@ -44,15 +44,19 @@ Double-click the downloaded copy of **Mandelbrot.exe** (on Windows) or **Mandelb
 
 When the program starts it displays the **Mandelbrot Set** viewer form.
 
-Here is an image of the viewer form.
-
-![Mandelbrot Viewer](img/Mandelbrot.png?raw=true "Mandelbrot Viewer")
-
 The viewer form contains these elements:
 
 - **Reset** button: Click this to re-initialize the viewer to show the full Mandelbrot Set after zooming in or and around the viewing area.
 - **Colors** button: Click this to display a set of various color gradients.  Click on any of the displayed color gradients to select it and the trigger a redraw of the Mandelbrot Set.
-- **Redraw** button: Click this to redraw the Mandelbrot Set after changing the size of the viewer form.
+- **Redraw** button: Click this to redraw the Mandelbrot Set after changing the size of the viewer form or the **Max. Iterations** value.
+- **Zoom Level** label indicates the current level of zoom in or out of the display.
+- **X** and **Y** labels indicate the current coordinates of the center of the displayed image.
+- **Max. Iterations** spin edit: Click the up or down arrows on this control to change the maximum number of iterations used to deteermine each pixel color of the image.  You can also type a value between 10 and 10000 directly into this control.  After changing the value, click the **Redraw** button to regenerate the image. 
+- The graphic display area contains the rendition of the Mandelbrot set, along with the currently selected color gradient at the top if the display area.
+
+Here is an image of the viewer form.
+
+![Mandelbrot Viewer](img/Mandelbrot.png?raw=true "Mandelbrot Viewer")
 
 Here is an example of the color gradient selection display.  (Note that the actual color gradients may be different than this example.)
 
