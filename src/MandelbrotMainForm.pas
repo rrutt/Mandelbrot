@@ -95,11 +95,7 @@ end;
 
 procedure TMandelbrotMainForm.ButtonColorsClick(Sender: TObject);
 begin
-  ButtonColors.Enabled := false;
-
   Space.PaintColorGradients;
-
-  ButtonColors.Enabled := true;
 end;
 
 procedure TMandelbrotMainForm.ButtonRedrawClick(Sender: TObject);
