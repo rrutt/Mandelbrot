@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <PathDelim Value="\"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="Mandelbrot"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -14,9 +16,10 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
+      <RevisionNr Value="1"/>
       <Language Value="080C"/>
       <CharSet Value="03A4"/>
-      <StringTable Comments="MIT License.  https://opensource.org/licenses/MIT" CompanyName="Rick Rutt" FileDescription="Mandelbrot Set in Pascal" LegalCopyright="Copyright 2024 Rick Rutt" ProductName="Mandelbrot Set in Pascal" ProductVersion="1.0.0+20240801"/>
+      <StringTable Comments="MIT License.  https://opensource.org/licenses/MIT" CompanyName="Rick Rutt" FileDescription="Mandelbrot Set in Pascal" LegalCopyright="Copyright 2024 Rick Rutt" ProductName="Mandelbrot Set in Pascal" ProductVersion="1.0.1+20240804"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
