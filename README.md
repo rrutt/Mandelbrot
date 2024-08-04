@@ -1,6 +1,6 @@
 # Mandelbrot Set Viewer Written in Pascal
 
-_Version 1.0.0+20240801  ([Version Release Notes](#ReleaseNotes))_ 
+_Version 1.0.1+20240804  ([Version Release Notes](#ReleaseNotes))_ 
 
 This is an open source interactive graphic viewer for the **[Mandelbrot Set](https://en.wikipedia.org/wiki/Mandelbrot_set)**.
 
@@ -104,6 +104,10 @@ Then rebuild the executable using the **Run | Build** menu item (or using the sh
 <a name="ReleaseNotes"></a>
 
 ## Release Notes
+
+### Version 1.0.1
+
+Replaced 32-bit Windows binary executable with 64-bit version, using Lazarus IDE version 3.4 and Free Pascal compiler version 3.2.2.
 
 ### Version 1.0.0
 

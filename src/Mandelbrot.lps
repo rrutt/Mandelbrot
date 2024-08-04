@@ -18,7 +18,6 @@
         <ComponentName Value="MandelBrotMainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="86"/>
         <CursorPos Y="99"/>
@@ -55,7 +54,7 @@
         <Filename Value="Cplx.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="7"/>
-        <CursorPos X="47" Y="10"/>
+        <CursorPos X="27" Y="10"/>
         <UsageCount Value="39"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -64,16 +63,17 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="8"/>
         <TopLine Value="59"/>
-        <CursorPos X="64" Y="69"/>
+        <CursorPos X="16" Y="69"/>
         <UsageCount Value="39"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="Constants.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <TopLine Value="5"/>
-        <CursorPos X="51" Y="14"/>
+        <CursorPos X="27" Y="11"/>
         <UsageCount Value="36"/>
         <Loaded Value="True"/>
       </Unit7>
