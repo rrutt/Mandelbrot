@@ -5,7 +5,7 @@ unit Context;
 interface
 
 uses
-  Classes, Forms, SysUtils;
+  Classes, SysUtils;
 
 var
   XCoordOffset: Double;
@@ -13,8 +13,6 @@ var
   ScaleFactor: Double;
   MaxIterations: Integer;
   MaxColors: Integer;
-  TheApplication: TApplication;
-  TheScreen: TScreen;
 
 
 implementation

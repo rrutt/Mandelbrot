@@ -5,7 +5,7 @@ interface
 {$mode objfpc}{$H+}
 
 uses
-  Classes, SysUtils, Controls, Dialogs, Graphics, LCLType, Math,
+  Classes, Forms, SysUtils, Controls, Dialogs, Graphics, LCLType, Math,
   ColorGradientUtil,
   Constants,
   Context,
@@ -18,6 +18,8 @@ type
       CenterY: Integer;
       SelectingColors: Boolean;
       CurrentGradientIndex: Integer;
+      //TheApplication: TApplication;
+      //TheScreen: TScreen;
 
     public
       procedure InitializeColorGradient;
@@ -89,8 +91,8 @@ implementation
     gradientHeight: integer;
     i: integer;
   begin
-    TheScreen.BeginWaitCursor;
-    TheApplication.ProcessMessages;
+    Screen.BeginWaitCursor;
+    Application.ProcessMessages;
 
     SelectingColors := true;
 
@@ -113,8 +115,8 @@ implementation
     finally
       Bitmap.Free;
 
-      TheScreen.EndWaitCursor;
-      TheApplication.ProcessMessages;
+      Screen.EndWaitCursor;
+      Application.ProcessMessages;
     end;
 
     inherited Paint;
@@ -132,8 +134,8 @@ implementation
     gradientIndex: integer;
     colorPalette: array of TColor;
   begin
-    TheScreen.BeginWaitCursor;
-    TheApplication.ProcessMessages;
+    Screen.BeginWaitCursor;
+    Application.ProcessMessages;
 
     SelectingColors := false;
 
@@ -161,7 +163,7 @@ implementation
           Bitmap.Canvas.Pixels[ix, iy] := pointColor;
         end;
 
-        TheApplication.ProcessMessages;
+        Application.ProcessMessages;
       end;
 
       PaintColorGradient(Bitmap, 0, CURRENT_GRADIENT_HEIGHT, gradientColors);
@@ -170,8 +172,8 @@ implementation
     finally
       Bitmap.Free;
 
-      TheScreen.EndWaitCursor;
-      TheApplication.ProcessMessages;
+      Screen.EndWaitCursor;
+      Application.ProcessMessages;
     end;
 
     inherited Paint;
