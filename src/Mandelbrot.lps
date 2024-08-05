@@ -26,10 +26,9 @@
       <Unit2>
         <Filename Value="MandelbrotSpace.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="144"/>
-        <CursorPos Y="156"/>
+        <CursorPos X="31" Y="149"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -70,9 +69,10 @@
       <Unit7>
         <Filename Value="Constants.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <TopLine Value="5"/>
-        <CursorPos X="27" Y="11"/>
+        <CursorPos X="30" Y="14"/>
         <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit7>
