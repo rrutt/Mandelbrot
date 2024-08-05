@@ -13,6 +13,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms,
   ColorGradientUtil,
+  Context,
   MandelbrotMainForm,
   MandelbrotPoint;
 
@@ -21,6 +22,8 @@ begin
 
   RequireDerivedFormResource := True;
   Application.Initialize;
+  TheApplication := Application;
+  TheScreen := Screen;
   Application.CreateForm(TMandelbrotMainForm, MainForm);
   Application.Run;
 end.

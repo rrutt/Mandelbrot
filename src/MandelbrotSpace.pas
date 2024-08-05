@@ -89,6 +89,9 @@ implementation
     gradientHeight: integer;
     i: integer;
   begin
+    TheScreen.BeginWaitCursor;
+    TheApplication.ProcessMessages;
+
     SelectingColors := true;
 
     Bitmap := TBitmap.Create;
@@ -109,6 +112,9 @@ implementation
       Canvas.Draw(0, 0, Bitmap);
     finally
       Bitmap.Free;
+
+      TheScreen.EndWaitCursor;
+      TheApplication.ProcessMessages;
     end;
 
     inherited Paint;
@@ -126,6 +132,9 @@ implementation
     gradientIndex: integer;
     colorPalette: array of TColor;
   begin
+    TheScreen.BeginWaitCursor;
+    TheApplication.ProcessMessages;
+
     SelectingColors := false;
 
     SetLength(colorPalette{%H-}, MaxColors);
@@ -157,6 +166,9 @@ implementation
       Canvas.Draw(0, 0, Bitmap);
     finally
       Bitmap.Free;
+
+      TheScreen.EndWaitCursor;
+      TheApplication.ProcessMessages;
     end;
 
     inherited Paint;

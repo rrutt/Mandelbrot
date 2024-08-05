@@ -75,7 +75,7 @@
         <IsPartOfProject Value="True"/>
       </Unit7>
       <Unit8>
-        <Filename Value="context.pas"/>
+        <Filename Value="Context.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Context"/>
       </Unit8>
