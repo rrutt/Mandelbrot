@@ -153,12 +153,15 @@ implementation
       for ix := 0 to (Width - 1) do begin
         offsetX := ix - CenterX;
         xCoord := XCoordOffset + (offsetX * scale);
+
         for iy := 0 to (Height - 1) do begin
           offsetY := iy - CenterY;
           yCoord := YCoordOffset + (offsetY * scale);
           pointColor := MandelbrotPointColor(xCoord, yCoord, colorPalette);
           Bitmap.Canvas.Pixels[ix, iy] := pointColor;
         end;
+
+        TheApplication.ProcessMessages;
       end;
 
       PaintColorGradient(Bitmap, 0, CURRENT_GRADIENT_HEIGHT, gradientColors);
