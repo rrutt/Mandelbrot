@@ -109,6 +109,8 @@ Then rebuild the executable using the **Run | Build** menu item (or using the sh
 
 Show hourglass cursor and process user interface event messages while generating graphic bitmap.
 
+Re-center graphic image when redrawing after the form is resized.
+
 ### Version 1.0.1
 
 Replaced 32-bit Windows binary executable with 64-bit version, using Lazarus IDE version 3.4 and Free Pascal compiler version 3.2.2.

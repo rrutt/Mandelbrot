@@ -145,6 +145,9 @@ implementation
     gradientColors := GRADIENT_COLOR_SETS[gradientIndex];
     MakeColorGradient(colorPalette{%H-}, gradientColors);
 
+    CenterX := Width div 2;
+    CenterY := Height div 2;
+
     Bitmap := TBitmap.Create;
     try
       Bitmap.Width := Width;
