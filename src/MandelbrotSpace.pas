@@ -18,8 +18,6 @@ type
       CenterY: Integer;
       SelectingColors: Boolean;
       CurrentGradientIndex: Integer;
-      //TheApplication: TApplication;
-      //TheScreen: TScreen;
 
     public
       procedure InitializeColorGradient;
@@ -109,6 +107,8 @@ implementation
         gradientColors := GRADIENT_COLOR_SETS[i];
         PaintColorGradient(Bitmap, gradientY, gradientHeight, gradientColors);
         gradientY := gradientY + gradientHeight + GRADIENT_SELECTION_SEPARATION;
+
+        Application.ProcessMessages;
       end;
 
       Canvas.Draw(0, 0, Bitmap);
