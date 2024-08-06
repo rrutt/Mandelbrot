@@ -9,7 +9,8 @@ uses
   Constants,
   Context,
   Cplx,
-  CplxSup;
+  CplxSup,
+  Forms;
 
 function MandelbrotPointColor(
   const XCoord: double;

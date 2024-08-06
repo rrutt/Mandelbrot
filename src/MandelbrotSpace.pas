@@ -5,7 +5,7 @@ interface
 {$mode objfpc}{$H+}
 
 uses
-  Classes, SysUtils, Controls, Dialogs, Graphics, LCLType, Math,
+  Classes, Forms, SysUtils, Controls, Dialogs, Graphics, LCLType, Math,
   ColorGradientUtil,
   Constants,
   Context,
@@ -89,6 +89,9 @@ implementation
     gradientHeight: integer;
     i: integer;
   begin
+    Screen.BeginWaitCursor;
+    Application.ProcessMessages;
+
     SelectingColors := true;
 
     Bitmap := TBitmap.Create;
@@ -104,11 +107,16 @@ implementation
         gradientColors := GRADIENT_COLOR_SETS[i];
         PaintColorGradient(Bitmap, gradientY, gradientHeight, gradientColors);
         gradientY := gradientY + gradientHeight + GRADIENT_SELECTION_SEPARATION;
+
+        Application.ProcessMessages;
       end;
 
       Canvas.Draw(0, 0, Bitmap);
     finally
       Bitmap.Free;
+
+      Screen.EndWaitCursor;
+      Application.ProcessMessages;
     end;
 
     inherited Paint;
@@ -126,6 +134,9 @@ implementation
     gradientIndex: integer;
     colorPalette: array of TColor;
   begin
+    Screen.BeginWaitCursor;
+    Application.ProcessMessages;
+
     SelectingColors := false;
 
     SetLength(colorPalette{%H-}, MaxColors);
@@ -133,6 +144,9 @@ implementation
     gradientIndex := CurrentGradientIndex;
     gradientColors := GRADIENT_COLOR_SETS[gradientIndex];
     MakeColorGradient(colorPalette{%H-}, gradientColors);
+
+    CenterX := Width div 2;
+    CenterY := Height div 2;
 
     Bitmap := TBitmap.Create;
     try
@@ -144,12 +158,15 @@ implementation
       for ix := 0 to (Width - 1) do begin
         offsetX := ix - CenterX;
         xCoord := XCoordOffset + (offsetX * scale);
+
         for iy := 0 to (Height - 1) do begin
           offsetY := iy - CenterY;
           yCoord := YCoordOffset + (offsetY * scale);
           pointColor := MandelbrotPointColor(xCoord, yCoord, colorPalette);
           Bitmap.Canvas.Pixels[ix, iy] := pointColor;
         end;
+
+        Application.ProcessMessages;
       end;
 
       PaintColorGradient(Bitmap, 0, CURRENT_GRADIENT_HEIGHT, gradientColors);
@@ -157,6 +174,9 @@ implementation
       Canvas.Draw(0, 0, Bitmap);
     finally
       Bitmap.Free;
+
+      Screen.EndWaitCursor;
+      Application.ProcessMessages;
     end;
 
     inherited Paint;

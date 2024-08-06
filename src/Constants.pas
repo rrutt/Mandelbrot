@@ -8,7 +8,7 @@ uses
   Classes, Graphics, SysUtils;
 
 const
-  PRODUCT_VERSION = '1.0.1+20240804';
+  PRODUCT_VERSION = '1.0.2+20240805';
 
   INITIAL_MAX_ITERATIONS = 200;
   INITIAL_SCALE_FACTOR = 2.0;
